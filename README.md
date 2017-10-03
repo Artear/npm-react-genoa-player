@@ -1,5 +1,10 @@
 # React Genoa Player
 
+
+```
+npm i --save react-genoa-player
+```
+
 ### How to use
 
 ```javascript
