@@ -9,6 +9,9 @@ npm i --save react-genoa-player
 ### How to use
 
 ```javascript
+import React, {Component} from 'react';
+import Genoa from "react-genoa-player";
+
 class App extends Component {
     render() {
         return (
