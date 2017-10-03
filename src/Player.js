@@ -28,7 +28,7 @@ export class Player extends Component {
 
 Player.propTypes = {
   host: PropTypes.string,
-  playerId: PropTypes.number,
+  playerId: PropTypes.string,
   videoId: PropTypes.number
 };
 

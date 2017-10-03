@@ -1,28 +1,33 @@
-.App {
-  text-align: center;
+body {
+    background: antiquewhite;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.video_player {
+    height: 100%;
+    width: 100%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.video-sticky {
+    position: fixed !important;
+    bottom: 80px;
+    right: 95px;
+    width: 400px;
+    height: 200px;
+    z-index: 500;
+    visibility: visible;
 }
 
-.App-title {
-  font-size: 1.5em;
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .video-sticky {
+        right: 70px;
+        bottom: 65px;
+    }
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media (min-width: 1367px) and (max-width: 1600px) {
+    .video-sticky {
+        right: 80px;
+        bottom: 60px;
+    }
 }

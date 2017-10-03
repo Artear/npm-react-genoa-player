@@ -1,8 +1,5 @@
 const webpack = require('webpack');
 const project = require('./webpack/config');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-let ExtractCommon = new ExtractTextPlugin(`Genoa.css`);
 
 module.exports = {
 
@@ -14,7 +11,8 @@ module.exports = {
 
     output: {
         path: project.paths.dist(),
-        filename: 'Genoa.js'
+        filename: 'Genoa.js',
+        libraryTarget: "commonjs2"
     },
 
     target: 'web',
@@ -33,29 +31,11 @@ module.exports = {
                     },
                 ],
                 exclude: /node_modules/
-            },
-            {
-                test: /Genoa\.scss$/,
-                include: project.paths.src(),
-                use: ExtractCommon.extract([
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: true,
-                            importLoaders: 1,
-                            localIdentName: "[path]___[name]__[local]___[hash:base64:5]"
-                        }
-                    },
-                    {
-                        loader: "sass-loader"
-                    }
-                ])
             }
         ]
     },
 
     plugins: [
-        ExtractCommon,
         new webpack.DefinePlugin(project.globals),
 
         new webpack.optimize.UglifyJsPlugin({
@@ -67,5 +47,9 @@ module.exports = {
         }),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin()
-    ]
+    ],
+
+    externals: {
+        'react': 'commonjs react'
+    }
 };
