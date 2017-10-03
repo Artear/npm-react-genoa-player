@@ -67,10 +67,5 @@ module.exports = {
         }),
         new webpack.optimize.AggressiveMergingPlugin(),
         new webpack.optimize.ModuleConcatenationPlugin()
-    ],
-
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM'
-    }
+    ]
 };
