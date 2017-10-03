@@ -1,5 +1,38 @@
 # React Genoa Player
 
+### How to use
+
+```javascript
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Genoa
+                    host="https://api.vodgc.net"
+                    playerId="7A6B981500560434"
+                    videoId={148893}
+                />
+            </div>
+        )
+    }
+}
+```
+
+### Default Options
+
+```json
+{
+    enableSticky: false,
+    stickyClassName: "video-sticky",
+    containerVideoClass: "video-container",
+    playerContainerClass: "video_player_container",
+    host: null,
+    playerId: null,
+    videoId: null,
+    boundaryOffset: 55
+}
+```
+
 ### Basic CSS
 
 ```css
