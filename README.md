@@ -20,7 +20,7 @@ class App extends Component {
 
 ### Default Options
 
-```json
+```
 {
     enableSticky: false,
     stickyClassName: "video-sticky",
