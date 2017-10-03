@@ -1,6 +1,6 @@
 {
   "name": "react-genoa-player",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "React component to render a Genoa video player",
   "main": "./build/Genoa.js",
   "scripts": {
