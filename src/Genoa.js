@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
-import Player from "./Player";
+import {Player} from "./Player";
 import "./Genoa.scss";
 
 export default class Genoa extends Component {

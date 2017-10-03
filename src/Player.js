@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const BASE_PLAYER_NAME = "video_player_";
 
-export default class Player extends Component {
+export class Player extends Component {
 
     render() {
         return(
