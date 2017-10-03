@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Genoa from "../../src/components/Genoa/Genoa";
+import Genoa from "react-genoa-player";
 
 class App extends Component {
     render() {
