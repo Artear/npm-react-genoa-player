@@ -20,6 +20,12 @@ class App extends Component {
                     host="https://api.vodgc.net"
                     playerId="7A6B981500560434"
                     videoId={148893}
+                    options={
+                        {
+                            vast: "kw_213123",
+                            segments: "1245123,5724343,621324313"
+                        }
+                    }
                 />
             </div>
         )
@@ -38,7 +44,10 @@ class App extends Component {
     host: null,
     playerId: null,
     videoId: null,
-    boundaryOffset: 55
+    boundaryOffset: 55,
+    onPlay: () => null,
+    onEnd: () => null,
+    options: {}
 }
 ```
 

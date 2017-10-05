@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Player} from "./Player";
 
+const VIDEO_ON_PLAY = "video_play";
+const VIDEO_ON_END = "video_end";
+
 export default class Genoa extends Component {
 
     constructor(props) {
@@ -22,6 +25,7 @@ export default class Genoa extends Component {
                         videoId={this.props.videoId}
                         host={this.props.host}
                         playerId={this.props.playerId}
+                        options={this.props.options}
                     />
                 </div>
             </div>
@@ -31,7 +35,6 @@ export default class Genoa extends Component {
     componentDidMount() {
 
         this.videoEventListener();
-
 
         if (this.props.enableSticky) {
             window.addEventListener("scroll", this.scrollEvent);
@@ -100,14 +103,28 @@ export default class Genoa extends Component {
         if (this.isJson(e.data)) {
             const pass_data = JSON.parse(e.data);
 
-            if (pass_data.action === "video_play") {
-                this.setState({
-                    isPlaying: true
-                }, () => {
-                    this.isSticky();
-                });
+            if (pass_data.action === VIDEO_ON_PLAY) {
+                this.onPlay();
+            }
+
+            if (pass_data.action === VIDEO_ON_END) {
+                this.onEnd();
             }
         }
+    };
+
+    onPlay = () => {
+        this.props.onPlay();
+
+        this.setState({
+            isPlaying: true
+        }, () => {
+            this.isSticky();
+        });
+    };
+
+    onEnd = () => {
+        this.props.onEnd();
     };
 
     isJson = (str) => {
@@ -126,7 +143,10 @@ Genoa.propTypes = {
     containerVideoClass: PropTypes.string,
     host: PropTypes.string,
     playerId: PropTypes.string,
-    videoId: PropTypes.number
+    videoId: PropTypes.number,
+    options: PropTypes.object,
+    onPlay: PropTypes.func,
+    onEnd: PropTypes.func
 };
 
 Genoa.defaultProps = {
@@ -138,5 +158,8 @@ Genoa.defaultProps = {
     playerId: null,
     videoId: null,
     boundaryOffset: 55,
-    sticky: false
+    sticky: false,
+    options: {},
+    onPlay: () => null,
+    onEnd: () => null
 };

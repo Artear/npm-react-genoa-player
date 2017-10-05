@@ -6,34 +6,43 @@ const BASE_PLAYER_NAME = "video_player_";
 export class Player extends Component {
 
     render() {
-        return(
+        return (
             <figure className="video_player_container">
                 <div className="video_player" id={this.randomPlayerId()}>
-                    <iframe src={this.getSrc()} frameBorder={0} allowFullScreen={true} width="100%" height="100%" scrolling="no"/>
+                    <iframe title="player" src={this.getSrc()} frameBorder={0} allowFullScreen={true} width="100%" height="100%"
+                            scrolling="no"/>
                 </div>
             </figure>
         );
     }
 
     getSrc = () => {
-        return `${this.props.host}/player/embed/playerId/${this.props.playerId}/contentId/${this.props.videoId}`;
+        const options = this.parseOptionsToQueryString();
+        return `${this.props.host}/player/embed/playerId/${this.props.playerId}/contentId/${this.props.videoId}?${options}`;
     };
 
     randomPlayerId = () => {
         return BASE_PLAYER_NAME + new Date().getUTCMilliseconds();
-    }
+    };
 
-    //?pvast=kw_c13prog=${coverId}&kw_segmentos=${segment}
+    parseOptionsToQueryString = () => {
+        return Object
+            .keys(this.props.options)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(this.props.options[key])}`)
+            .join('&');
+    }
 }
 
 Player.propTypes = {
-  host: PropTypes.string,
-  playerId: PropTypes.string,
-  videoId: PropTypes.number
+    host: PropTypes.string,
+    playerId: PropTypes.string,
+    videoId: PropTypes.number,
+    options: PropTypes.object
 };
 
 Player.defaultProps = {
-  host: "",
-  playerId: null,
-  videoId: null
+    host: "",
+    playerId: null,
+    videoId: null,
+    options: {}
 };
