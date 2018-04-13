@@ -18,7 +18,7 @@ export class Player extends Component {
 
     getSrc = () => {
         const options = this.parseOptionsToQueryString();
-        return `${this.props.host}/player/embed/playerId/${this.props.playerId}/contentId/${this.props.videoId}?${options}`;
+        return `${this.props.host}/player/v2/embed/playerId/${this.props.playerId}/contentId/${this.props.videoId}?${options}`;
     };
 
     randomPlayerId = () => {
