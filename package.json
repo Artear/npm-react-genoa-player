@@ -1,6 +1,6 @@
 {
-  "name": "react-genoa-player",
-  "version": "0.0.1",
+  "name": "@artear/react-genoa-player",
+  "version": "1.0.0",
   "description": "React component to render a Genoa video player",
   "main": "./build/Genoa.js",
   "scripts": {
@@ -8,19 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Artear/react-genoa-player.git"
+    "url": "git+https://github.com/Artear/npm-react-genoa-player.git"
   },
   "author": {
-    "name": "Alejo Roman Daraio",
-    "email": "alejo_daraio@artear.com",
-    "url": "https://github.com/alejodaraio",
-    "company": "Artear"
+    "name": "Artear"
   },
-  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Artear/react-genoa-player/issues"
+    "url": "https://github.com/Artear/npm-react-genoa-player/issues"
   },
-  "homepage": "https://github.com/Artear/react-genoa-player#readme",
+  "homepage": "https://github.com/Artear/npm-react-genoa-player#readme",
   "keywords": [
     "genoa",
     "player",
@@ -32,8 +28,7 @@
     "build": "build",
     "src": "src"
   },
-  "dependencies": {
-    "isomorphic-config": "0.1.11",
+  "peerDependencies": {
     "prop-types": "15.6.0",
     "react": "16.0.0"
   },
