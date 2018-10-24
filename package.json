@@ -1,6 +1,6 @@
 {
   "name": "@artear/react-genoa-player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React component to render a Genoa video player",
   "main": "./build/Genoa.js",
   "scripts": {
