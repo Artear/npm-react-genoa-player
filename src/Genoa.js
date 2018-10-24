@@ -2,8 +2,11 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Player} from "./Player";
 
-const VIDEO_ON_PLAY = "video_play";
-const VIDEO_ON_END = "video_end";
+const VIDEO_ON_PLAY = "Start";
+const VIDEO_ON_RESUME = "Resume";
+const VIDEO_ON_PAUSE = "Pause";
+const VIDEO_ON_END = "Complete";
+const VIDEO_AD_ERROR = "adError";
 
 export default class Genoa extends Component {
 
@@ -103,11 +106,10 @@ export default class Genoa extends Component {
         if (this.isJson(e.data)) {
             const pass_data = JSON.parse(e.data);
 
-            if (pass_data.action === VIDEO_ON_PLAY) {
+            if ([VIDEO_ON_PLAY, VIDEO_ON_RESUME].includes(pass_data.action)) {
                 this.onPlay();
             }
-
-            if (pass_data.action === VIDEO_ON_END) {
+            else if ([VIDEO_ON_END, VIDEO_ON_PAUSE, VIDEO_AD_ERROR].includes(pass_data.action)){
                 this.onEnd();
             }
         }
