@@ -9,7 +9,7 @@ export class Player extends Component {
         return (
             <figure className="video_player_container">
                 <div className="video_player" id={this.randomPlayerId()}>
-                    <iframe title="player" src={this.getSrc()} frameBorder={0} allowFullScreen={true} width="100%" height="100%"
+                    <iframe title="player" src={this.getSrc()} frameBorder={0} allowFullScreen={true} allow="autoplay" width="100%" height="100%"
                             scrolling="no"/>
                 </div>
             </figure>
